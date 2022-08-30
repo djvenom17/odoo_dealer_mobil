@@ -1,0 +1,1 @@
+./odoo-bin --addons-path=/home/pandu/Documents/latihan_odoo/addons,/home/pandu/Documents/latihan_odoo/addonspandu --xmlrpc-port=8070 --db_port 5432 -d pandumart --limit-memory-hard 0 --limit-time-real=10000 -u pandumart
