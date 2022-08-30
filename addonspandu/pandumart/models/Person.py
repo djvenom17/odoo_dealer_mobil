@@ -7,7 +7,7 @@ class Person(models.Model):
 
     name = fields.Char(string='Nama')
     alamat = fields.Char(string='Alamat')
-    tgl_lahir = fields.Datetime(string='Tanggal Lahir')
+    tgl_lahir = fields.Date(string='Tanggal Lahir')
 
 
 
