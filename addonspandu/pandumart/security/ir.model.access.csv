@@ -4,3 +4,4 @@ access_pandumart_barang,access.pandumart.barang,model_pandumart_barang,,1,1,1,1
 access_pandumart_person,access.pandumart.person,model_pandumart_person,,1,1,1,1
 access_pandumart_kasir,access.pandumart.kasir,model_pandumart_kasir,,1,1,1,1
 access_pandumart_cleaningservice,access.pandumart.cleaningservice,model_pandumart_cleaningservice,,1,1,1,1
+access_pandumart_supplier,access.pandumart.supplier,model_pandumart_supplier,,1,1,1,1

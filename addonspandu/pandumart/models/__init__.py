@@ -2,7 +2,9 @@
 
 from . import models
 from . import KelompokBarang
-from . import barang
+from . import Barang
 from . import Person
 from . import Konsumen
+from . import Supplier
+
 

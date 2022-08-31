@@ -12,6 +12,7 @@
                 <field name="harga_beli"/>
                 <field name="harga_jual"/>
                 <field name="kelompokbarang_id"/>
+                <field name="supplier_id"/>
             </tree>
         </field>
     </record>

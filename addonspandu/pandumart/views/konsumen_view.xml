@@ -5,10 +5,10 @@
     <record id="res_partner_konsumen_view_tree_inherit" model="ir.ui.view">
         <field name="name">res.partner.inherit.view.tree</field>
         <field name="model">res.partner</field>
-        <field name="mode">primary</field>
+        <field name="mode">extension</field>
         <field name="inherit_id" ref="base.view_partner_tree"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='function']" position="after">
+            <xpath expr="//field[@name='vat']" position="after">
                 <field name="poin"/>   
                 <field name="level"/>
             </xpath>
@@ -19,10 +19,10 @@
     <record id="res_partner_konsumen_view_form_inherit" model="ir.ui.view">
         <field name="name">res.partner.inherit.view.form</field>
         <field name="model">res.partner</field>
-        <field name="mode">primary</field>
+        <field name="mode">extension</field>
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='function']" position="after">
+            <xpath expr="//field[@name='vat']" position="after">
                 <field name="poin"/>   
                 <field name="level"/>
             </xpath>

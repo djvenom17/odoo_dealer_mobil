@@ -22,9 +22,7 @@
         <field name="mode">primary</field>
         <field name="inherit_id" ref="pandumart_person_view_form"/>
         <field name="arch" type="xml">
-            <!-- Add your xpath here -->
             <xpath expr="//form//sheet//group[2]" position="after">
-               <field name="id_kasir"/> 
                <group name="id" string="ID">
                     <field name="id_kasir"/>
                </group>
