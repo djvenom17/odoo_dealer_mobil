@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- pandumart.cleaningservice tree view -->
+    <record id="pandumart_cleaningservice_view_tree" model="ir.ui.view">
+        <field name="name">pandumart.cleaningservice.view.tree</field>
+        <field name="model">pandumart.cleaningservice</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="alamat"/>
+                <field name="tgl_lahir"/>
+                <field name="id_cln"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- pandumart.cleaningservice form view -->
+    <record id="pandumart_cleaningservice_view_form" model="ir.ui.view">
+        <field name="name">pandumart.cleaningservice.view.form</field>
+        <field name="model">pandumart.cleaningservice</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="alamat"/>
+                    <field name="tgl_lahir"/>
+                    <field name="id_cln"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- pandumart.cleaningservice.action action window -->
+    <record id="pandumart_cleaningservice_action" model="ir.actions.act_window">
+        <field name="name">pandumart.clearningservice.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pandumart.cleaningservice</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="pandumart_cleaningservice_menu_act" 
+              name="Daftar Cleaning Service" 
+              parent="pandumart_pegawai_menu_categ" 
+              action="pandumart_cleaningservice_action" 
+              sequence="20"/>
+
+</odoo>

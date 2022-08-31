@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- pandumart.kasir tree view -->
+    <record id="pandumart_kasir_view_tree" model="ir.ui.view">
+        <field name="name">pandumart.kasir.view.tree</field>
+        <field name="model">pandumart.kasir</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="alamat"/>
+                <field name="tgl_lahir"/>
+                <field name="id_kasir"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- pandumart.kasir form view -->
+    <record id="pandumart_kasir_view_form" model="ir.ui.view">
+        <field name="name">pandumart.kasir.view.form</field>
+        <field name="model">pandumart.kasir</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                    <!-- Add your fields here -->
+                    <field name="name"/>
+                    <field name="alamat"/>
+                    <field name="tgl_lahir"/>
+                    <field name="id_kasir"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- pandumart.kasir action window -->
+    <record id="pandumart_kasir_action" model="ir.actions.act_window">
+        <field name="name">pandumart.kasir.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pandumart.kasir</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="pandumart_kasir_menu_act" 
+              name="Daftar Kasir" 
+              parent="pandumart_pegawai_menu_categ" 
+              action="pandumart_kasir_action" 
+              sequence="10"/>
+
+</odoo>
