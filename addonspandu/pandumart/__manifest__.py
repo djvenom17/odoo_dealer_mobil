@@ -36,7 +36,8 @@
         'views/kasir_view2.xml',
         'views/konsumen_view.xml',
         'views/supplier_view.xml',
-
+        'views/direksi_view.xml',
+        'views/penjualan_view.xml',
 
 
     ],
