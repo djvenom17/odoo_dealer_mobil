@@ -11,6 +11,7 @@
                 <field name="name"/>
                 <field name="harga_beli"/>
                 <field name="harga_jual"/>
+                <field name="stock"/>
                 <field name="kelompokbarang_id"/>
                 <field name="supplier_id"/>
             </tree>
@@ -29,6 +30,7 @@
                         <field name="name"/>
                         <field name="harga_beli"/>
                         <field name="harga_jual"/>
+                        <field name="stock"/>
                     </group>
                     <group name="kelompokbarang" string="Kelompok Barang">
                        <field name="kelompokbarang_id"></field> 
@@ -40,7 +42,7 @@
 
 <!-- pandumart.barang.action.view action window -->
 <record id="pandumart_barang_action" model="ir.actions.act_window">
-    <field name="name">daftar.barang.action</field>
+    <field name="name">Daftar Barang</field>
     <field name="type">ir.actions.act_window</field>
     <field name="res_model">pandumart.barang</field>
     <field name="view_mode">tree,form</field>

@@ -12,5 +12,7 @@ class Barang(models.Model):
                                       string='Kelompok Barang',
                                       ondelete='cascade')
     supplier_id = fields.Many2many(comodel_name='pandumart.supplier', string='Supplier')
+    stock = fields.Integer(string='Stock')
+    
     
     

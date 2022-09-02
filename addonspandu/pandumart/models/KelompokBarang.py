@@ -8,10 +8,14 @@ class KelompokBarang(models.Model):
     name = fields.Selection(string='Nama Kelompok', 
                             selection=[('makananbasah', 'Makanan Basah'), 
                                        ('makanankering', 'Makanan Kering'), 
-                                       ('minuman','Minuman')])
-                                       
+                                       ('minuman','Minuman')])                                   
     kode_kelompok = fields.Char(onchange='_compute_kode_kelompok', string='Kode Kelompok')
-    
+    kode_rak = fields.Char(string='Kode Rak')
+    barang_ids = fields.One2many(comodel_name='pandumart.barang', 
+                                 inverse_name='kelompokbarang_id', 
+                                 string='Daftar Barang')
+    jml_item = fields.Char(compute='_compute_jml_item', string='Jumlah Item')
+    daftar = fields.Char(string='Daftar Isi')
     
     @api.onchange('name')
     def _compute_kode_kelompok(self):
@@ -21,14 +25,7 @@ class KelompokBarang(models.Model):
             self.kode_kelompok = 'mak02'
         elif (self.name == 'minuman'):
             self.kode_kelompok = 'min'
-
-
-    kode_rak = fields.Char(string='Kode Rak')
-    barang_ids = fields.One2many(comodel_name='pandumart.barang', 
-                                 inverse_name='kelompokbarang_id', 
-                                 string='Daftar Barang')
-    jml_item = fields.Char(compute='_compute_jml_item', string='Jumlah Item')
-    
+   
     @api.depends('barang_ids')
     def _compute_jml_item(self):
         for rec in self:
@@ -36,7 +33,3 @@ class KelompokBarang(models.Model):
             b = len(a)
             rec.jml_item = b
             rec.daftar = a
-
-    daftar = fields.Char(string='Daftar Isi')
-    
-    
