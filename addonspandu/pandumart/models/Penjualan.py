@@ -1,4 +1,7 @@
+from xml.dom import ValidationErr
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
+
 
 
 class Penjualan(models.Model):
@@ -42,7 +45,38 @@ class Penjualan(models.Model):
                 ob.barang_id.stock += ob.qty
         record = super(Penjualan,self).unlink()
 
+    #method write
+    def write(self, vals):
+        for rec in self:
+            a= self.env['pandumart.detailpenjualan'].search([('penjualan_id','=',rec.id)])
+            print(a)
+            for data in a:
+                print(str(data.barang_id.name)+' '+str(data.qty)+' '+str(data.barang_id.stock))
+                data.barang_id.stock += data.qty
+        record = super(Penjualan, self).write(vals)
+        for rec in self:
+            b= self.env['pandumart.detailpenjualan'].search([('penjualan_id','=',rec.id)])
+            print(b)
+            for databaru in b:
+                if databaru in a:   
+                    print(str(databaru.barang_id.name)+' '+str(databaru.qty)+' '+str(databaru.barang_id.stock))
+                    databaru.barang_id.stock -= databaru.qty
+                else:
+                    pass
+        return record 
 
+    #contoh struktur SQL CONSTRAINTS (pembatasan/exception dalam penginputan)
+    #sql cons diterapkan untuk tabel dan berlaku ketika tabel di panggil kemanapun
+    # _sql_constraints = [
+    #   (<nama constraints>,<constraintsnya>,<pesan constraints>)
+    # ]
+
+    #contoh SQL Constraints
+    _sql_constraints = [
+        ('no_nota_unik','unique (name)','Nomor Nota Tidak Boleh Sama !!!')
+        ]
+
+    
 
 class DetailPenjualan(models.Model):
     _name = 'pandumart.detailpenjualan'
@@ -51,6 +85,7 @@ class DetailPenjualan(models.Model):
     name = fields.Char(string='Nama')
     penjualan_id = fields.Many2one(comodel_name='pandumart.penjualan', string='Detail Penjualan')
     barang_id = fields.Many2one(comodel_name='pandumart.barang', string='List Barang')
+    
     harga_satuan = fields.Integer(string='Harga Satuan')
     qty = fields.Integer(string='Quantity')
     subtotal = fields.Integer(compute='_compute_subtotal', string='Subtotal')
@@ -72,3 +107,17 @@ class DetailPenjualan(models.Model):
         if record.qty:
             self.env['pandumart.barang'].search([('id','=',record.barang_id.id)]).write({'stock' : record.barang_id.stock - record.qty})
         return record
+
+    #contoh python constrains
+    #python cons hanya berlaku di program saja bukan pada tabel databasenya
+    @api.constrains('qty')
+    def check_quantity(self):
+        for rec in self:
+            if rec.qty < 1 :
+                raise ValidationError('Mau Belanja {} berapa banyak sih...'.format(rec.barang_id.name))
+            elif (rec.barang_id.stock < rec.qty):
+                raise ValidationError('stock {} tidak mencukupi, hanya tersedia {}'.format(rec.barang_id.name, rec.barang_id.stock))
+    
+    # _sql_constraints = [
+    #     ('qty_wrong','CHECK(qty < 1)','qty kocak geming ajib')
+    #     ]

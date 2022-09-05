@@ -1,4 +1,6 @@
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
+
 
 
 class Barang(models.Model):
@@ -14,5 +16,16 @@ class Barang(models.Model):
     supplier_id = fields.Many2many(comodel_name='pandumart.supplier', string='Supplier')
     stock = fields.Integer(string='Stock')
     
+    _sql_constraints = [
+        ('nama_barang_unik','unique (name)','Nama Barang Sudah Terdaftar'),
+        ('kelompokbarang_id_notnull','CHECK (kelompokbarang_id IS NOT NULL)','Kelompok Barang Gaboleh Kosong Dong !!!')
+        ]
     
+    @api.constrains('stock')
+    def check_stock(self):
+        for rec in self:
+            if rec.stock < 1 :
+                raise ValidationError('Isi Stock {} Terlebih dahulu '.format(rec.name))
+
+
     
