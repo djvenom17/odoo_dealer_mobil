@@ -1,21 +1,30 @@
-# -*- coding: utf-8 -*-
-# from odoo import http
+from odoo import http, models, fields
+from odoo.http import request
+import json
 
+class Pandumart(http.Controller):
+    @http.route('/pandumart/getbarang', auth= 'public', method=['GET'])
+    def getBarang(self, **kw):
+        barang = request.env['pandumart.barang'].search([])
+        isi = []
+        for bb in barang:
+            isi.append({
+                'nama_barang' : bb.name,
+                'harga_jual' : bb.harga_jual,
+                'stock' : bb.stock
+            })
+        return json.dumps(isi)
 
-# class Pandumart(http.Controller):
-#     @http.route('/pandumart/pandumart', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
+    @http.route('/pandumart/getsupplier', auth='public', method=['GET'] )
+    def geSupplier(self, **kw):
+        supplier = request.env['pandumart.supplier'].search([])
+        supp = []
+        for s in supplier:
+            supp.append({
+                'nama_perusahaan' : s.name,
+                'alamat' : s.alamat,
+                'no_telepon' : s.no_telp,
+                'barang' : s.barang_id[0].name
 
-#     @http.route('/pandumart/pandumart/objects', auth='public')
-#     def list(self, **kw):
-#         return http.request.render('pandumart.listing', {
-#             'root': '/pandumart/pandumart',
-#             'objects': http.request.env['pandumart.pandumart'].search([]),
-#         })
-
-#     @http.route('/pandumart/pandumart/objects/<model("pandumart.pandumart"):obj>', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('pandumart.object', {
-#             'object': obj
-#         })
+            })
+            return json.dumps(supp)

@@ -119,5 +119,5 @@ class DetailPenjualan(models.Model):
                 raise ValidationError('stock {} tidak mencukupi, hanya tersedia {}'.format(rec.barang_id.name, rec.barang_id.stock))
     
     # _sql_constraints = [
-    #     ('qty_wrong','CHECK(qty < 1)','qty kocak geming ajib')
+    #     ('qty_wrong REFERENCES qty','CHECK(qty < 1)','qty kocak geming ajib')
     #     ]
