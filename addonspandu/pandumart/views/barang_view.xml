@@ -8,6 +8,7 @@
         <field name="arch" type="xml">
             <tree>
                 <!-- Add your fields here -->
+                <!-- <button name="%(pandumart.barangdatang_action_wizzard)d" type="action" string="Input Barang" class="btn btn-warning"/> -->
                 <field name="name"/>
                 <field name="harga_beli"/>
                 <field name="harga_jual"/>
@@ -24,9 +25,13 @@
         <field name="model">pandumart.barang</field>
         <field name="arch" type="xml">
             <form string="">
+                
+                <header>
+                    <button name="%(pandumart.barangdatang_action_wizzard)d" type="action" string="Input Barang" class="btn btn-warning"/>
+                </header>
                 <sheet>
                     <group>
-                        <!-- Add your fields here -->
+                        
                         <field name="name"/>
                         <field name="harga_beli"/>
                         <field name="harga_jual"/>

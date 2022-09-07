@@ -7,3 +7,4 @@ access_pandumart_cleaningservice,access.pandumart.cleaningservice,model_pandumar
 access_pandumart_supplier,access.pandumart.supplier,model_pandumart_supplier,,1,1,1,1
 access_pandumart_penjualan,access.pandumart.penjualan,model_pandumart_penjualan,,1,1,1,1
 access_pandumart_detailpenjualan,access.pandumart.detailpenjualan,model_pandumart_detailpenjualan,,1,1,1,1
+access_pandumart_barangdatang,access.pandumart.barangdatang,model_pandumart_barangdatang,,1,1,1,1

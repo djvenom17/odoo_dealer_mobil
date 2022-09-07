@@ -39,6 +39,7 @@
         'views/direksi_view.xml',
         'views/penjualan_view.xml',
         'report/report.xml',
+        'wizzard/barangdatang_wizzard.xml'
 
 
     ],
