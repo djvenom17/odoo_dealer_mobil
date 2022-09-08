@@ -24,4 +24,10 @@
               name="Transaksi" 
               parent="pandumart_menu_root" 
               sequence="90"/>
+    
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="pandumart_wizzard_menu_categ" 
+              name="Wizzard" 
+              parent="pandumart_menu_root" 
+              sequence="91"/>
 </odoo>

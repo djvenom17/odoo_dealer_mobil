@@ -25,4 +25,4 @@ class PartnerXlsx(models.AbstractModel):
             for aaa in obj.barang_id:
                 sheet.write(row, col+3, aaa.name)
                 col += 1
-            row += 1
+                row += 1

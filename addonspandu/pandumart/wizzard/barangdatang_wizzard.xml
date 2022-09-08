@@ -36,8 +36,8 @@
     <!-- This Menu Item must have a parent and an action -->
     <menuitem id="barangdatang_menu_act_wizzard" 
               name="Input Barang" 
-              parent="pandumart_menu_root" 
+              parent="pandumart_wizzard_menu_categ" 
               action="barangdatang_action_wizzard" 
-              sequence="91"/>
+              sequence="10"/>
 
 </odoo>
