@@ -1,0 +1,60 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+<!--
+    <record model="ir.ui.view" id="dealerpandu.list">
+      <field name="name">dealerpandu list</field>
+      <field name="model">dealerpandu.dealerpandu</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+          <field name="value2"/>
+        </tree>
+      </field>
+    </record>
+-->
+
+    <!-- actions opening views on models -->
+<!--
+    <record model="ir.actions.act_window" id="dealerpandu.action_window">
+      <field name="name">dealerpandu window</field>
+      <field name="res_model">dealerpandu.dealerpandu</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+-->
+
+    <!-- server action to the one above -->
+<!--
+    <record model="ir.actions.server" id="dealerpandu.action_server">
+      <field name="name">dealerpandu server</field>
+      <field name="model_id" ref="model_dealerpandu_dealerpandu"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+-->
+
+    <!-- Top menu item -->
+<!--
+    <menuitem name="dealerpandu" id="dealerpandu.menu_root"/>
+-->
+    <!-- menu categories -->
+<!--
+    <menuitem name="Menu 1" id="dealerpandu.menu_1" parent="dealerpandu.menu_root"/>
+    <menuitem name="Menu 2" id="dealerpandu.menu_2" parent="dealerpandu.menu_root"/>
+-->
+    <!-- actions -->
+<!--
+    <menuitem name="List" id="dealerpandu.menu_1_list" parent="dealerpandu.menu_1"
+              action="dealerpandu.action_window"/>
+    <menuitem name="Server to list" id="dealerpandu" parent="dealerpandu.menu_2"
+              action="dealerpandu.action_server"/>
+-->
+  </data>
+</odoo>

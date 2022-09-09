@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- dealerpandu.daftarmobil action window -->
+    <record id="dealerpandu_daftarmobil_action" model="ir.actions.act_window">
+        <field name="name">Daftar Mobil</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">dealerpandu.daftarmobil</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="daftarmobil_menu_act" 
+              name="Daftar Mobil" 
+              parent="katalog_menu_categ" 
+              action="dealerpandu_daftarmobil_action" 
+              sequence="10"/>
+
+</odoo>
