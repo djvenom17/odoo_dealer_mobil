@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
+    <!-- dealerpandu.daftarmobil tree view -->
+    <record id="dealerpandu_daftarmobil_view_tree" model="ir.ui.view">
+        <field name="name">dealerpandu.daftarmobil.view.tree</field>
+        <field name="model">dealerpandu.daftarmobil</field>
+        <field name="arch" type="xml">
+            <tree>
+                
+                <field name="name"/>
+                <field name="harga_mobil_modal"/>
+                <field name="harga_mobil_jual"/>
+                <field name="stock"/>
+                <field name="brandmobil_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- dealerpandu.daftarmobil form view -->
+    <record id="dealerpandu_daftarmobil_view_form" model="ir.ui.view">
+        <field name="name">Form Data Mobil</field>
+        <field name="model">dealerpandu.daftarmobil</field>
+        <field name="arch" type="xml">
+            <form string="Form Data Mobil">
+                <sheet>
+                    <group>
+                        
+                        <field name="name"/>
+                        <field name="harga_mobil_modal"/>
+                        <field name="harga_mobil_jual"/>
+                        <field name="stock"/>
+                    </group>
+                    <group name="name" string="string">
+                        <field name="brandmobil_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
     <!-- dealerpandu.daftarmobil action window -->
     <record id="dealerpandu_daftarmobil_action" model="ir.actions.act_window">
         <field name="name">Daftar Mobil</field>
@@ -14,6 +52,6 @@
               name="Daftar Mobil" 
               parent="katalog_menu_categ" 
               action="dealerpandu_daftarmobil_action" 
-              sequence="10"/>
+              sequence="20"/>
 
 </odoo>

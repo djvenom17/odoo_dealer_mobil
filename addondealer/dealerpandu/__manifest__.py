@@ -29,6 +29,7 @@
         'views/templates.xml',
         'views/menu_view.xml',
         'views/daftarmobil_view.xml',
+        'views/brandmobil_view.xml',
 
     ],
     # only loaded in demonstration mode
