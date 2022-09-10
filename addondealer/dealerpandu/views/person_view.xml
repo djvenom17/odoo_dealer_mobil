@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- dealerpandu.person tree view -->
+    <record id="dealerpandu_person_view_tree" model="ir.ui.view">
+        <field name="name">dealerpandu.person.view.tree</field>
+        <field name="model">dealerpandu.person</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="alamat"/>
+                <field name="tgl_lahir"/>
+                <field name="plat_mobil"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- dealerpandu.person form view -->
+    <record id="dealerpandu_person_view_form" model="ir.ui.view">
+        <field name="name">Form Karyawan</field>
+        <field name="model">dealerpandu.person</field>
+        <field name="arch" type="xml">
+            <form string="ssss">
+                <sheet>
+                    <group name="id" string="Identitas">
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="alamat"/>
+                        <field name="tgl_lahir"/>
+                    </group>
+                    <group name="plat" string="Plat Mobil">
+                        <field name="plat_mobil"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- dealerpandu.person search view -->
+    <record id="dealerpandu_person_view_search" model="ir.ui.view">
+        <field name="name">dealerpandu.person.view.search</field>
+        <field name="model">dealerpandu.person</field>
+        <field name="arch" type="xml">
+            <search string="Search Description">
+                <!-- Add your fields here -->
+                
+            </search>
+        </field>
+    </record>
+
+</odoo>

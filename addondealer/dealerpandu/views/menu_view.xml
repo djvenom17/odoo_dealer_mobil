@@ -11,4 +11,16 @@
               name="Katalog" 
               parent="dealerpandu_menu_root" 
               sequence="10"/>
+    
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="fleet_menu_categ" 
+              name="Katalog Mobil" 
+              parent="dealerpandu_menu_root" 
+              sequence="20"/>
+
+    <!-- This Menu Item Must have a parent -->
+    <menuitem id="karyawan_menu_categ" 
+              name="Karyawan" 
+              parent="dealerpandu_menu_root" 
+              sequence="30"/>
 </odoo>

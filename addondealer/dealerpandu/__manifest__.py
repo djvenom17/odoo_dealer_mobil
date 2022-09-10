@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'fleet'],
 
     # always loaded
     'data': [
@@ -30,6 +30,12 @@
         'views/menu_view.xml',
         'views/daftarmobil_view.xml',
         'views/brandmobil_view.xml',
+        'views/fleet_view.xml',
+        'views/person_view.xml',
+        # 'views/karyawan_view.xml',
+        'views/junior_view.xml',
+        'views/senior_view.xml',
+        
 
     ],
     # only loaded in demonstration mode
