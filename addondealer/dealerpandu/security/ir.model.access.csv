@@ -3,3 +3,6 @@ access_dealerpandu_daftarmobil,access.dealerpandu.daftarmobil,model_dealerpandu_
 access_dealerpandu_brandmobil,access.dealerpandu.brandmobil,model_dealerpandu_brandmobil,,1,1,1,1
 access_dealerpandu_person,access.dealerpandu.person,model_dealerpandu_person,,1,1,1,1
 access_dealerpandu_karyawan,access.dealerpandu.karyawan,model_dealerpandu_karyawan,,1,1,1,1
+access_dealerpandu_dealermitra,access.dealerpandu.dealermitra,model_dealerpandu_dealermitra,,1,1,1,1
+access_dealerpandu_order,access.dealerpandu.order,model_dealerpandu_order,,1,1,1,1
+access_dealerpandu_detailorder,access.dealerpandu.detailorder,model_dealerpandu_detailorder,,1,1,1,1

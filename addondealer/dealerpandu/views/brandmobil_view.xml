@@ -24,7 +24,6 @@
         <field name="arch" type="xml">
             <form string="">
                 <sheet>
-
                     <field name="logo_brand" widget="image" class="oe_avatar"/>
                     <group name="brand" string="Data Brand">
                         <!-- Add your fields here -->
@@ -46,7 +45,7 @@
         <field name="name">Brand Mobil</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">dealerpandu.brandmobil</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">tree,form,kanban</field>
     </record>
 
     <!-- This Menu Item must have a parent and an action -->

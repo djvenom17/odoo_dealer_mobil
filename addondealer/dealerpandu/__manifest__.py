@@ -30,11 +30,13 @@
         'views/menu_view.xml',
         'views/daftarmobil_view.xml',
         'views/brandmobil_view.xml',
-        'views/fleet_view.xml',
+        # 'views/fleet_view.xml',
         'views/person_view.xml',
         # 'views/karyawan_view.xml',
         'views/junior_view.xml',
         'views/senior_view.xml',
+        'views/dealermitra_view.xml',
+        'views/order_view.xml',
         
 
     ],

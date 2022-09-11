@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- dealerpandu.order tree view -->
+    <record id="dealerpandu_order_view_tree" model="ir.ui.view">
+        <field name="name">Order History</field>
+        <field name="model">dealerpandu.order</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="nama_pembeli"/>
+                <field name="tgl_order"/>
+                <field name="total_bayar"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- dealerpandu.order form view -->
+    <record id="dealerpandu_order_view_form" model="ir.ui.view">
+        <field name="name">Form Order</field>
+        <field name="model">dealerpandu.order</field>
+        <field name="arch" type="xml">
+            <form string="Order Form">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="nama_pembeli"/>
+                        <field name="tgl_order"/>
+                        <field name="total_bayar"/>
+                    </group>
+                    <group name="daftarorder" string="Daftar Order">
+                        <field name="detailorder_ids">
+                            <tree editable='bottom'>
+                                <field name="daftarmobil_id"/>
+                                <field name="cost_satuan"/>
+                                <field name="qty_order"/>
+                                <field name="sub_total" sum='Total'/>
+                            </tree>
+                        </field>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- dealerpandu.order action window -->
+    <record id="dealerpandu_order_action" model="ir.actions.act_window">
+        <field name="name">Order Mobil</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">dealerpandu.order</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="dealerpandu_order_menu_act" 
+              name="Order Mobil" 
+              parent="dealerpandu_menu_root" 
+              action="dealerpandu_order_action" 
+              sequence="50"/>
+
+</odoo>

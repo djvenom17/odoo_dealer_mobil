@@ -6,3 +6,5 @@ from . import BrandMobil
 from . import Fleet
 from . import Person
 from . import ResPartner
+from . import DealerMitra
+from . import Order

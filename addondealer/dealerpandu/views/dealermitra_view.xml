@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- dealerpandu.dealermitra tree view -->
+    <record id="dealerpandu_dealermitra_view_tree" model="ir.ui.view">
+        <field name="name">Dealer Mitra</field>
+        <field name="model">dealerpandu.dealermitra</field>
+        <field name="arch" type="xml">
+            <tree>
+                <!-- Add your fields here -->
+                <field name="name"/>
+                <field name="alamat_dealer"/>
+                <field name="no_telp"/>
+                <field name="daftarmobil_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- dealerpandu.dealermitra form view -->
+    <record id="dealerpandu_dealermitra_view_form" model="ir.ui.view">
+        <field name="name">Form Dealer Mitra</field>
+        <field name="model">dealerpandu.dealermitra</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <field name="logo_dealer" widget="image" class="oe_avatar"/>
+                    <group name="datadealer" string="Data Dealer">
+                        <!-- Add your fields here -->
+                        <field name="name"/>
+                        <field name="alamat_dealer"/>
+                        <field name="no_telp"/>
+                    </group>
+                    <group name="daftarmobil_" string="Daftar Mobil Distribusi">
+                        <field name="daftarmobil_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- dealerpandu.dealermitra action window -->
+    <record id="dealerpandu_dealermitra_action" model="ir.actions.act_window">
+        <field name="name">Dealer Mitra</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">dealerpandu.dealermitra</field>
+        <field name="view_mode">tree,form,kanban</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="dealerpandu_dealermitra_menu_act" 
+              name="Dealer Mitra" 
+              parent="dealerpandu_menu_root" 
+              action="dealerpandu_dealermitra_action" 
+              sequence="40"/>
+
+</odoo>
