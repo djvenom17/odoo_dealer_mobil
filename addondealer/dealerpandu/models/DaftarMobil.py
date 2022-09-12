@@ -1,4 +1,6 @@
 from odoo import api, fields, models
+from odoo.exceptions import ValidationError
+
 
 
 class DaftarMobil(models.Model):
@@ -13,8 +15,18 @@ class DaftarMobil(models.Model):
                                     string='Brand Mobil',
                                     ondelete='cascade')
     dealermitra_id = fields.Many2many(comodel_name='dealerpandu.dealermitra', string='Deale Mitra')
+    currency_id = fields.Many2one('res.currency', string='Account Currency',
+        help="Forces all moves for this account to have this account currency.")
     
+    _sql_constraints = [
+        ('nama_mobil_unik','unique (name)','Nama Mobil Sudah Terdaftar'),
+        # ('brandmobil_id_notnull','CHECK (brandmobil_id IS NOT NULL)','Brand Mobil Gaboleh Kosong Dong !!!')
+        ]
     
-
+    @api.constrains('stock')
+    def check_stock(self):
+        for rec in self:
+            if rec.stock < 1 :
+                raise ValidationError('Isi Stock {} Terlebih dahulu '.format(rec.name))
 
     

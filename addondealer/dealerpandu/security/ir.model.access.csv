@@ -6,3 +6,4 @@ access_dealerpandu_karyawan,access.dealerpandu.karyawan,model_dealerpandu_karyaw
 access_dealerpandu_dealermitra,access.dealerpandu.dealermitra,model_dealerpandu_dealermitra,,1,1,1,1
 access_dealerpandu_order,access.dealerpandu.order,model_dealerpandu_order,,1,1,1,1
 access_dealerpandu_detailorder,access.dealerpandu.detailorder,model_dealerpandu_detailorder,,1,1,1,1
+access_dealerpandu_addmobil,access.dealerpandu.addmobil,model_dealerpandu_addmobil,,1,1,1,1

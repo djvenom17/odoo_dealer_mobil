@@ -20,7 +20,7 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'fleet'],
+    'depends': ['base', 'fleet', 'report_xlsx'],
 
     # always loaded
     'data': [
@@ -30,13 +30,16 @@
         'views/menu_view.xml',
         'views/daftarmobil_view.xml',
         'views/brandmobil_view.xml',
-        # 'views/fleet_view.xml',
+        'views/fleet_view.xml',
         'views/person_view.xml',
         # 'views/karyawan_view.xml',
         'views/junior_view.xml',
         'views/senior_view.xml',
         'views/dealermitra_view.xml',
         'views/order_view.xml',
+        'wizard/addmobil_wizard_view.xml',
+        'report/report.xml'
+        
         
 
     ],

@@ -1,0 +1,46 @@
+<odoo>
+
+    <!-- daftarmobil -->
+    <record id="report_daftarmobil_xlsx" model="ir.actions.report">
+        <field name="name">Daftarmobil Excel</field>
+        <field name="model">dealerpandu.daftarmobil</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">dealerpandu.report_daftarmobil_xlsx</field>
+        <field name="report_file">dealerpandu.report_daftarmobil_xlsx</field>
+        <field name="binding_model_id" ref="model_dealerpandu_daftarmobil"/>
+        <field name="binding_type">report</field>
+    </record> 
+
+    <!-- brandmobil -->
+    <record id="report_brandmobil_xlsx" model="ir.actions.report">
+        <field name="name">Brandmobil Excel</field>
+        <field name="model">dealerpandu.brandmobil</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">dealerpandu.report_brandmobil_xlsx</field>
+        <field name="report_file">dealerpandu.report_brandmobil_xlsx</field>
+        <field name="binding_model_id" ref="model_dealerpandu_brandmobil"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- dealermitra -->
+    <record id="report_dealermitra_xlsx" model="ir.actions.report">
+        <field name="name">Dealer Mitra Excel</field>
+        <field name="model">dealerpandu.dealermitra</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">dealerpandu.report_dealermitra_xlsx</field>
+        <field name="report_file">dealerpandu.report_dealermitra_xlsx</field>
+        <field name="binding_model_id" ref="model_dealerpandu_dealermitra"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Order -->
+    <record id="report_order_xlsx" model="ir.actions.report">
+        <field name="name">Order Excel</field>
+        <field name="model">dealerpandu.dealermitra</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">dealerpandu.report_order_xlsx</field>
+        <field name="report_file">dealerpandu.report_order_xlsx</field>
+        <field name="binding_model_id" ref="model_dealerpandu_order"/>
+        <field name="binding_type">report</field>
+    </record>
+</odoo>

@@ -1,6 +1,7 @@
 from email.policy import default
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
+from datetime import datetime
 
 
 
@@ -10,12 +11,44 @@ class Order(models.Model):
 
     name = fields.Char(string='Nota Number', required=True)
     nama_pembeli = fields.Char(string='Nama Pembeli', required=True)
-    tgl_order = fields.Date(string='Tgl. Order', default= fields.Datetime.now())
+    #eror waktunya stuck
+    tgl_order = fields.Datetime(string='Tgl. Order')
     total_bayar = fields.Integer(compute='_compute_totalorder', string='Total Pembayaran')
     detailorder_ids = fields.One2many(comodel_name='dealerpandu.detailorder', 
                                 inverse_name='order_id', 
                                 string='Detail Order')
+    state = fields.Selection(string='Status', 
+                             selection=[('draft', 'Draft'), 
+                                        ('confirm', 'Confirm'),
+                                        ('done', 'Done'),
+                                        ('cancel', 'Cancel')],
+                            required=True, readonly=True, default="draft") 
+    currency_id = fields.Many2one('res.currency', string='Account Currency',
+        help="Forces all moves for this account to have this account currency.")
+
+    @api.model
+    def default_get(self, fields):
+        res = super(Order, self).default_get(fields)
+        res.update({'tgl_order': datetime.now()})
+        return res
+
+    #mengubah state ke confirm
+    def action_confirm(self):
+        self.write({'state': 'confirm'})
+
+    #mengubah state done
+    def action_done(self):
+        self.write({'state': 'done'})
+
+    #mengubah state ke cancel
+    def action_cancel(self):
+        self.write({'state': 'cancel'})
+
+    #mengubah state ke draft
+    def action_draft(self):
+        self.write({'state': 'draft'})
     
+
     #menghitung total order yang di order oleh pembeli
     @api.depends('detailorder_ids')
     def _compute_totalorder(self):
@@ -23,17 +56,20 @@ class Order(models.Model):
             a = sum(self.env['dealerpandu.detailorder'].search([('order_id','=',rec.id)]).mapped('sub_total'))
             rec.total_bayar = a
 
-    #mengurangi stock (daftarmobil) jika adanya transaksi yang dilakukan di menu (order)
-    @api.ondelete(at_uninstall=False)
-    def _ondelete_order(self):
-        if self.detailorder_ids:
-            a=[]
-            for rec in self:
-                a = self.env['dealerpandu.detailorder'].search([('order_id','=',rec.id)])
-            for ob in a:
-                ob.daftarmobil_id.stock += ob.qty_order
+    def unlink(self):
+        for rec in self:
+            #pesan state eror jika action DELETE dilakukan diluar DRAFT
+            if rec.filtered(lambda line: line.state != 'draft'):
+                raise ValidationError ('tidak dapat menghapus jika status buka DRAFT')
+            # mengurangi stock (daftarmobil) jika adanya transaksi yang dilakukan di menu (order)
+            if rec.detailorder_ids:
+                for data in rec.detailorder_ids:
+                    data.daftarmobil_id.stock = data.daftarmobil_id.stock + data.qty_order
+        record = super(Order,self).unlink()
+        return record
 
     #menambahkan lagi (jumlah) order yang dibatalkan kedalam (daftarmobil)
+    #kalo hapusnya berbarengan eror
     def write(self, vals):
         for rec in self:
             a= self.env['dealerpandu.detailorder'].search([('order_id','=',rec.id)])
@@ -59,12 +95,13 @@ class DetailOrder(models.Model):
     _description = 'New Description'
 
     name = fields.Char(string='Nama')
-    order_id = fields.Many2one(comodel_name='dealerpandu.order', string='Order ID')
+    order_id = fields.Many2one(comodel_name='dealerpandu.order', string='Order ID', ondelete="cascade")
     daftarmobil_id = fields.Many2one(comodel_name='dealerpandu.daftarmobil', string='Daftar Mobil', required=True)
     cost_satuan = fields.Integer(string='Harga Satuan')
     qty_order = fields.Integer(string='Jumlah Pembelian')
-    sub_total = fields.Integer(compute='_compute_subtotal', string='Total Harga')    
+    sub_total = fields.Integer(compute='_compute_subtotal', string='Total Harga')  
     
+
     #jumlah total yang harus dibayarkan
     @api.depends('cost_satuan', 'qty_order')
     def _compute_subtotal(self):

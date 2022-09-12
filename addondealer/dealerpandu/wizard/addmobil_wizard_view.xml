@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- dealerpandu.addmobil form view -->
+    <record id="addmobil_view_form_wizard" model="ir.ui.view">
+        <field name="name">dealerpandu.addmobil.view.form</field>
+        <field name="model">dealerpandu.addmobil</field>
+        <field name="arch" type="xml">
+            <form string="Form Add Mobil">
+                <group>
+                    <!-- Add your fields here -->
+                    <field name="daftarmobil_id"/>  
+                    <field name="jumlah"/>
+                </group>
+                <footer>
+                    <button name="button_add_mobil" string="Add Mobil" type="object" class="oe_highlight"/>
+                    <button string="Cancel" special="cancel" class="btn btn-danger"/> 
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <!-- dealerpandu.addmobil action window -->
+    <record id="addmobil_action_wizard" model="ir.actions.act_window">
+        <field name="name">dealerpandu.addmobil.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">dealerpandu.addmobil</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="addmobil_view_form_wizard"/>
+        <field name="target">new</field>
+    </record>
+
+</odoo>

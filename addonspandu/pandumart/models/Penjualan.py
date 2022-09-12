@@ -1,4 +1,3 @@
-from xml.dom import ValidationErr
 from odoo import api, fields, models
 from odoo.exceptions import ValidationError
 
@@ -15,7 +14,31 @@ class Penjualan(models.Model):
     detailpenjualan_ids = fields.One2many(comodel_name='pandumart.detailpenjualan', 
                                           inverse_name='penjualan_id', 
                                           string='Detail Penjualan')
+    #menambahkan status pada penjualan                                      
+    state = fields.Selection(string='Status', 
+                             selection=[('draft', 'Draft'), 
+                                        ('confirm', 'Confirm'),
+                                        ('done', 'Done'),
+                                        ('cancel', 'Cancel')],
+                            required=True, readonly=True, default="draft")
     
+    #mengubah state ke confirm
+    def action_confirm(self):
+        self.write({'state': 'confirm'})
+
+    #mengubah state done
+    def action_done(self):
+        self.write({'state': 'done'})
+
+    #mengubah state ke cancel
+    def action_cancel(self):
+        self.write({'state': 'cancel'})
+
+    #mengubah state ke draft
+    def action_draft(self):
+        self.write({'state': 'draft'})
+
+
     @api.depends('detailpenjualan_ids')
     def _compute_totalbayar(self):
         for rec in self:
@@ -35,6 +58,8 @@ class Penjualan(models.Model):
 
     #methode UNLINK/ONDELETE untuk ODOO14 (menghapus barang)
     def unlink(self):
+        if self.filtered(lambda line: line.state != 'draft'):
+            raise ValidationError ('tidak dapat menghapus jika status buka DRAFT')
         if self.detailpenjualan_ids:
             a = []
             for rec in self:

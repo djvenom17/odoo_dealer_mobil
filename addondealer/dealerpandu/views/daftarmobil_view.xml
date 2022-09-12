@@ -6,11 +6,11 @@
         <field name="name">dealerpandu.daftarmobil.view.tree</field>
         <field name="model">dealerpandu.daftarmobil</field>
         <field name="arch" type="xml">
-            <tree>
-                
+            <tree>  
                 <field name="name"/>
-                <field name="harga_mobil_modal"/>
-                <field name="harga_mobil_jual"/>
+                <field name="currency_id" invisible="1"/>
+                <field name="harga_mobil_modal" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                <field name="harga_mobil_jual" widget="monetary" options="{'currency_field': 'currency_id'}"/>
                 <field name="stock"/>
                 <field name="brandmobil_id"/>
             </tree>
@@ -23,15 +23,18 @@
         <field name="model">dealerpandu.daftarmobil</field>
         <field name="arch" type="xml">
             <form string="Form Data Mobil">
+                <header>
+                    <button name="%(dealerpandu.addmobil_action_wizard)d" type="action" string="Input Barang" class="btn btn-warning"/>
+                </header>
                 <sheet>
-                    <group>
-                        
+                    <group name="data_mobil" string="Data Mobil">
                         <field name="name"/>
-                        <field name="harga_mobil_modal"/>
-                        <field name="harga_mobil_jual"/>
+                        <field name="currency_id" invisible="0"/>
+                        <field name="harga_mobil_modal" widget="monetary" options="{'currency_field': 'currency_id'}"/>
+                        <field name="harga_mobil_jual" widget="monetary" options="{'currency_field': 'currency_id'}"/> 
                         <field name="stock"/>
                     </group>
-                    <group name="name" string="string">
+                    <group name="brand_mobil" string="Brand Mobil">
                         <field name="brandmobil_id"/>
                     </group>
                 </sheet>
