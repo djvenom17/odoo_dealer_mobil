@@ -8,3 +8,4 @@ from . import Person
 from . import ResPartner
 from . import DealerMitra
 from . import Order
+from . import Employees

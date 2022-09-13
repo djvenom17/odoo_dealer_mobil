@@ -47,8 +47,8 @@
 
     <!-- This Menu Item must have a parent and an action -->
     <menuitem id="dealerpandu_senior_menu_act" 
-              name="Senior" 
-              parent="karyawan_menu_categ" 
+              name="Gold" 
+              parent="pelanggan_menu_categ" 
               action="res_partner_senior_action" 
               sequence="20"/>
 

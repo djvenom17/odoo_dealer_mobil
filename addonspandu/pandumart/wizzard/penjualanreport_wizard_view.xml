@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- model.name form view -->
+    <record id="penjualanreport_wizard_view_form" model="ir.ui.view">
+        <field name="name">model.name.view.form</field>
+        <field name="model">pandumart.penjualanreport</field>
+        <field name="arch" type="xml">
+            <form string="">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="konsumen_id"/>
+                        <field name="dari_tgl"/>
+                        <field name="ke_tgl"/>
+                    </group>
+                    <footer>
+                        <button name="button_penjualan_report_action" string="Print Report" type="object" class="oe_highlight"/>
+                        <button string="Cancel" special="cancel" class="oe_link"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- penjualanreport_wizard_action action window -->
+    <record id="penjualanreport_wizard_action" model="ir.actions.act_window">
+        <field name="name">penjualanreport_wizard_action.action</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">pandumart.penjualanreport</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref=""/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="penjualanreport_wiard_menu_act" 
+              name="Penjualan Report" 
+              parent="pandumart_wizzard_menu_categ" 
+              action="penjualanreport_wizard_action" 
+              sequence="20"/>
+</odoo>

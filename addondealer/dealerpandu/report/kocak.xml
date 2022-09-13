@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_junior_pdf_template" name="template_name">
+        <xpath expr="" position="inside">
+            
+        </xpath>
+    </template>
+
+</odoo>

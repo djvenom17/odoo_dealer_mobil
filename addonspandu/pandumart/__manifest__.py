@@ -40,7 +40,10 @@
         'views/penjualan_view.xml',
         'report/report.xml',
         'report/Report_Penjualan_PDF.xml',
-        'wizzard/barangdatang_wizzard.xml'
+        'report/wizzard_penjualanreport_template.xml',
+        'wizzard/barangdatang_wizzard.xml',
+        'wizzard/penjualanreport_wizard_view.xml',
+        
 
 
     ],

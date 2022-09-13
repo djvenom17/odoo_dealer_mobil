@@ -10,8 +10,7 @@ class Order(models.Model):
     _description = 'New Description'
 
     name = fields.Char(string='Nota Number', required=True)
-    nama_pembeli = fields.Char(string='Nama Pembeli', required=True)
-    #eror waktunya stuck
+    nama_pembeli = fields.Many2one(comodel_name="res.partner",string='Nama Pembeli', required=True)
     tgl_order = fields.Datetime(string='Tgl. Order')
     total_bayar = fields.Integer(compute='_compute_totalorder', string='Total Pembayaran')
     detailorder_ids = fields.One2many(comodel_name='dealerpandu.detailorder', 

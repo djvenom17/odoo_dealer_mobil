@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_order_pdf_template" name="Daftar Mobil">
+        
+        <t t-call="web.html_container" >
+            
+            <t t-call="web.internal_layout">
+               <div class='page'>
+
+                    <h1 align-text="center"><b>Daftar Mobil</b></h1>
+                    <br/>
+                        <table style="width:100%; border:1px solid black;">
+                            <tr style="text-align: center; vertical-align: middle;">
+                                <th>Nota Number</th>
+                                <th>Nama Pembeli</th>
+                                <th>Tgl. Order</th>
+                                <th>Total Pembayaran</th>
+                                <th>Status</th>
+                            </tr>
+                        <t t-foreach='docs' t-as='d'>
+                            <tr style="text-align: center; vertical-align: middle; border:1px solid black;">
+                                <td style="border:1px solid black;">
+                                    <div class='col-8'><span t-field='d.name'/></div>
+                                </td>
+                                <td style="border:1px solid black;">
+                                    <div class='col-8'><span t-field='d.nama_pembeli'/></div>
+                                </td>
+                                <td style="border:1px solid black;">
+                                    <div class='col-8'><span t-field='d.tgl_order'/></div>
+                                </td>
+                                <td style="border:1px solid black;">
+                                    <div class='col-8'><span t-field='d.total_bayar'/></div>
+                                </td>
+                                <td style="border:1px solid black;">
+                                    <div class='col-8'><span t-field='d.state'/></div>
+                                </td>
+                            </tr>
+                        </t>
+                        </table>
+               </div> 
+            </t>
+        </t>    
+    </template>
+</odoo>

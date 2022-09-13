@@ -10,23 +10,20 @@ class PartnerXlsx(models.AbstractModel):
         sheet = workbook.add_worksheet('Daftar Order History')
         bold = workbook.add_format({'bold': True})
         sheet.write(0, 0, str(self.tgl_lap))
-        sheet.write(2, 0, 'Order History')
-        sheet.write(4, 0, 'Nama Pembeli')
-        sheet.write(4, 1, 'Tgl. Order')
-        sheet.write(4, 2, 'Total Pembayaran')
-        sheet.write(4, 3, 'Status')
-        row = 4
+        sheet.write(1, 0, 'Nota Number')
+        sheet.write(1, 1, 'Nama Pembeli')
+        sheet.write(1, 2, 'Tgl. Order')
+        sheet.write(1, 3, 'Total Pembayaran')
+        sheet.write(1, 3, 'Status')
+        row = 2
         col = 0
 
         for obj in order:
-            col += 0
+            row += 1
             report_name = obj.name
             sheet.write(row, col, obj.name)
-            sheet.write(row, col+1, obj.nama_pembeli)
+            sheet.write(row, col+1, obj.nama_pembeli.display_name)
             sheet.write(row, col+2, obj.tgl_order)
             sheet.write(row, col+3, obj.total_bayar)
-            for loop in obj.daftarmobil_id:
-                sheet.write(row, col+4, loop.name)
-                col += 0
-                row += 1
+            sheet.write(row, col+3, obj.state)
             

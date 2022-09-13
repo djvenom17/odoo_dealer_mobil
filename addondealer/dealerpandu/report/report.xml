@@ -11,6 +11,16 @@
         <field name="binding_type">report</field>
     </record> 
 
+    <record id="report_daftarmobil_pdf" model="ir.actions.report">
+        <field name="name">Daftar Mobil PDF</field>
+        <field name="model">dealerpandu.daftarmobil</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">dealerpandu.report_daftarmobil_pdf_template</field>
+        <field name="report_file">dealerpandu.report_daftarmobil_pdf_teplate</field>
+        <field name="binding_model_id" ref="model_dealerpandu_daftarmobil"/>
+        <field name="binding_type">report</field>
+    </record>
+
     <!-- brandmobil -->
     <record id="report_brandmobil_xlsx" model="ir.actions.report">
         <field name="name">Brandmobil Excel</field>
@@ -19,6 +29,58 @@
         <field name="report_name">dealerpandu.report_brandmobil_xlsx</field>
         <field name="report_file">dealerpandu.report_brandmobil_xlsx</field>
         <field name="binding_model_id" ref="model_dealerpandu_brandmobil"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_brandmobil_pdf" model="ir.actions.report">
+        <field name="name">Brand Mobil PDF</field>
+        <field name="model">dealerpandu.brandmobil</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">dealerpandu.report_brandmobil_pdf_template</field>
+        <field name="report_file">dealerpandu.report_brandmobil_pdf_template</field>
+        <field name="binding_model_id" ref="model_dealerpandu_brandmobil"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Res.partner Junior-->
+    <record id="report_junior_xlsx" model="ir.actions.report">
+        <field name="name">junior Excel</field>
+        <field name="model">res.partner</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">res.report_junior_xlsx_template</field>
+        <field name="report_file">res.report_junior_xlsx_template</field>
+        <field name="binding_model_id" ref="model_res_partner"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_junior_pdf" model="ir.actions.report">
+        <field name="name">Junior PDF</field>
+        <field name="model">res.partner</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">res.report_junior_pdf_template</field>
+        <field name="report_file">res.report_junior_pdf_template</field>
+        <field name="binding_model_id" ref="model_res_partner"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Res.partner Senior-->
+    <record id="report_senior_xlsx" model="ir.actions.report">
+        <field name="name">Senior Excel</field>
+        <field name="model">res.partner</field>
+        <field name="report_type">xlsx</field>
+        <field name="report_name">res.report_senior_xlsx_template</field>
+        <field name="report_file">res.report_senior_xlsx_template</field>
+        <field name="binding_model_id" ref="model_res_partner"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_senior_pdf" model="ir.actions.report">
+        <field name="name">Senior PDF</field>
+        <field name="model">res.partner</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">res.report_senior_pdf_template</field>
+        <field name="report_file">res.report_senior_pdf_template</field>
+        <field name="binding_model_id" ref="model_res_partner"/>
         <field name="binding_type">report</field>
     </record>
 
@@ -33,13 +95,33 @@
         <field name="binding_type">report</field>
     </record>
 
+    <record id="report_dealermitra_pdf" model="ir.actions.report">
+        <field name="name">Dealer Mitra PDF</field>
+        <field name="model">dealerpandu.dealermitra</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">dealerpandu.report_dealermitra_pdf_template</field>
+        <field name="report_file">dealerpandu.report_dealermitra_pdf_template</field>
+        <field name="binding_model_id" ref="model_dealerpandu_dealermitra"/>
+        <field name="binding_type">report</field>
+    </record>
+
     <!-- Order -->
     <record id="report_order_xlsx" model="ir.actions.report">
         <field name="name">Order Excel</field>
-        <field name="model">dealerpandu.dealermitra</field>
+        <field name="model">dealerpandu.order</field>
         <field name="report_type">xlsx</field>
         <field name="report_name">dealerpandu.report_order_xlsx</field>
         <field name="report_file">dealerpandu.report_order_xlsx</field>
+        <field name="binding_model_id" ref="model_dealerpandu_order"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <record id="report_order_pdf" model="ir.actions.report">
+        <field name="name">Order PDF</field>
+        <field name="model">dealerpandu.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">dealerpandu.report_order_pdf_template</field>
+        <field name="report_file">dealerpandu.report_order_pdf_template</field>
         <field name="binding_model_id" ref="model_dealerpandu_order"/>
         <field name="binding_type">report</field>
     </record>

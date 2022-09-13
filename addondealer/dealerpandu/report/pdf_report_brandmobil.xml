@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_brandmobil_pdf_template" name="Daftar Mobil">
+        
+        <t t-call="web.html_container" >
+            
+            <t t-call="web.internal_layout">
+               <div class='page'>
+
+                    <h1 align-text="center"><b>Brand Mobil</b></h1>
+                    <br/>
+                        <table style="width:100%" border="1px solid">
+                            <tr>
+                                <th>Nama Brand</th>
+                                <th>Founder Brand</th>
+                                <th>Brand Country</th>
+                                <th>Jumlah Mobil</th>
+                                <th>Daftar Mobil</th>
+                            </tr>
+                        <t t-foreach='docs' t-as='d'>
+                            <tr>
+                                <td>
+                                    <div class='col-8'><span t-field='d.name'/></div>
+                                </td>
+                                <td>
+                                    <div class='col-8'><span t-field='d.founder_brand'/></div>
+                                </td>
+                                <td>
+                                    <div class='col-8'><span t-field='d.brand_country'/></div>
+                                </td>
+                                <td>
+                                    <div class='col-8'><span t-field='d.jml_mobil'/></div>
+                                </td>
+                                <td>
+                                    <div class='col-8'><span t-field='d.daftar'/></div>
+                                </td>
+                            </tr>
+                        </t>
+                        </table>
+               </div> 
+            </t>
+        </t>    
+    </template>
+</odoo>

@@ -28,4 +28,14 @@
         <field name="binding_model_id" ref="model_pandumart_penjualan"/>
         <field name="binding_type">report</field>
     </record>
+
+    <record id="wizard_penjualanreport_pdf" model="ir.actions.report">
+        <field name="name">Print Facture</field>
+        <field name="model">pandumart.penjualanreport</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">pandumart.wizard_penjualanreport_pdf_tmp</field>
+        <field name="report_file">pandumart.wizard_penjualanreport_pdf_tmp</field>
+        <field name="binding_model_id" ref="model_pandumart_penjualanreport"/>
+        <field name="binding_type">report</field>
+    </record>
 </odoo>

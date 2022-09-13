@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <!-- res.partner tree view -->
-    <record id="res_partner_junior_view_tree" model="ir.ui.view">
+    <!-- hr.employee tree view -->
+    <record id="hr_employee_junior_view_tree" model="ir.ui.view">
         <field name="name">Data Junior Employee</field>
-        <field name="model">res.partner</field>
+        <field name="model">hr.employee</field>
         <field name="mode">extension</field>
-        <field name="inherit_id" ref="base.view_partner_tree"/>
+        <field name="inherit_id" ref="hr.view_employee_tree"/>
         <field name="arch" type="xml">
-                <xpath expr="//field[@name='email']" position="after">
+                <xpath expr="//field[@name='activity_ids']" position="after">
                     <field name="plat_mobil"/>   
                     <field name="employee_junior"/>
                     <field name="employee_senior"/>
@@ -16,41 +16,47 @@
         </field>
     </record>
 
-    <!-- res.partner form view -->
-    <record id="model_name_view_form" model="ir.ui.view">
+    <!-- hr.employee form view -->
+    <record id="hr_employee_junior_view_form" model="ir.ui.view">
         <field name="name">Form Junior Employee</field>
-        <field name="model">res.partner</field>
+        <field name="model">hr.employee</field>
         <field name="mode">extension</field>
-        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='vat']" position="after">
+            <xpath expr="//field[@name='department_id']" position="after">
                 <field name="plat_mobil"/>   
                 <field name="employee_junior"/>
                 <field name="employee_senior"/>
             </xpath> 
-            <xpath expr="//field[@name='vat']" position="attributes">
+            <xpath expr="//field[@name='department_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='parent_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='coach_id']" position="attributes">
                 <attribute name="invisible">1</attribute>
             </xpath>
         </field>
     </record>
 
-    <record id="res_partner_junior_inherit_search" model="ir.ui.view">
+    <!-- <record id="hr_employee_junior_inherit_search" model="ir.ui.view">
         <field name="name">res.partner.inherit.view.search</field>
         <field name="model">res.partner</field>
         <field name="mode">extension</field>
         <field name="inherit_id" ref="base.view_res_partner_filter"/>
         <field name="arch" type="xml">
-            <field name="parent_id" position='after'>
+            <field name="activity_ids" position='after'>
                 <filter name="junior" string="Junior" domain="[('employee_junior', '=', 'True')]"/>
             </field>
         </field>
-    </record>
+    </record> -->
 
-    <!-- res.partner action window -->
-    <record id="res_partner_junior_action" model="ir.actions.act_window">
+    <!-- hr.employee action window -->
+    <record id="hr_employee_junior_action" model="ir.actions.act_window">
         <field name="name">Data Junior Employee</field>
         <field name="type">ir.actions.act_window</field>
-        <field name="res_model">res.partner</field>
+        <field name="res_model">hr.employee</field>
         <field name="view_mode">tree,form,kanban</field>
         <field name="context">
             {
@@ -61,10 +67,10 @@
     </record>
 
     <!-- This Menu Item must have a parent and an action -->
-    <menuitem id="dealerpandu_junior_menu_act" 
-              name="Silver" 
-              parent="pelanggan_menu_categ" 
-              action="res_partner_junior_action" 
-              sequence="10"/>
+    <menuitem id="dealerpandu_karyawanjunior_menu_act" 
+              name="Karyawan Junior" 
+              parent="karyawan_menu_categ" 
+              action="hr_employee_junior_action" 
+              sequence="61"/>
 
 </odoo>

@@ -20,6 +20,9 @@
             <xpath expr="//field[@name='level']" position="attributes">
                 <attribute name="invisible">1</attribute>>
             </xpath>
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="id_member"/>
+            </xpath>
         </field>
     </record>
 
@@ -41,6 +44,9 @@
             </xpath>
             <xpath expr="//field[@name='vat']" position="after">
                 <field name="is_konsumen"/>
+            </xpath>
+            <xpath expr="//field[@name='vat']" position="after">
+                <field name="id_member"/>
             </xpath>
         </field>
     </record>

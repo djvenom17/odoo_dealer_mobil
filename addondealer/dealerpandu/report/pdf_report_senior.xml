@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_senior_pdf_template" name="Daftar Employee">
+        <t t-call="web.html_container" >
+            
+            <t t-call="web.internal_layout">
+               <div class='page'>
+
+                    <h1 align-text="center"><b>Daftar Employee Junior</b></h1>
+                    <br/>
+                        <table style="width:100%; border:1px solid black;">
+                            <tr style="text-align: center; vertical-align: middle;">
+                                <th>Nama</th>
+                                <th>Phone</th>
+                                <th>Email</th>
+                                <th>Plat Mobil</th>
+                                <th>Junior</th>
+                                <th>Senior</th>
+                            </tr>
+                        <t t-foreach='docs' t-as='d'>
+                            <tr style="text-align: center; vertical-align: middle; border:1px solid black;">
+                                <td style="border:1px solid black;">
+                                    <div class='col-8'><span t-field='d.display_name'/></div>
+                                </td>
+                                <td style="border:1px solid black;">
+                                    <div class='col-8'><span t-field='d.phone'/></div>
+                                </td>
+                                <td style="border:1px solid black;">
+                                    <div class='col-8'><span t-field='d.email'/></div>
+                                </td>
+                                <td style="border:1px solid black;">
+                                    <div class='col-8'><span t-field='d.plat_mobil'/></div>
+                                </td>
+                                <td style="border:1px solid black;">
+                                    <div class='col-8'><span t-field='d.employee_junior'/></div>
+                                </td>
+                                <td style="border:1px solid black;">
+                                    <div class='col-8'><span t-field='d.employee_senior'/></div>
+                                </td>
+                            </tr>
+                        </t>
+                        </table>
+               </div> 
+            </t>
+        </t>    
+    </template>
+</odoo>

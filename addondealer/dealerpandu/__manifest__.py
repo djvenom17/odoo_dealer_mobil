@@ -30,15 +30,25 @@
         'views/menu_view.xml',
         'views/daftarmobil_view.xml',
         'views/brandmobil_view.xml',
-        'views/fleet_view.xml',
+        # 'views/fleet_view.xml',
         'views/person_view.xml',
-        # 'views/karyawan_view.xml',
         'views/junior_view.xml',
+        'views/karyawanjunior_view.xml',
         'views/senior_view.xml',
+        'views/karyawansenior_view.xml',
+        'report/pdf_report_daftarmobil.xml',
+        'report/pdf_report_brandmobil.xml',
+        'report/pdf_report_dealermitra.xml',
+        'report/pdf_report_order.xml',
+        'report/kocak.xml',
         'views/dealermitra_view.xml',
         'views/order_view.xml',
         'wizard/addmobil_wizard_view.xml',
-        'report/report.xml'
+        'report/report.xml',
+        'report/pdf_report_junior.xml',
+        'report/pdf_report_senior.xml',
+
+        
         
         
 

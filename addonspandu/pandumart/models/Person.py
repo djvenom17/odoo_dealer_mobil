@@ -9,8 +9,6 @@ class Person(models.Model):
     alamat = fields.Char(string='Alamat')
     tgl_lahir = fields.Date(string='Tanggal Lahir')
 
-
-
 class Kasir(models.Model):
     _name = 'pandumart.kasir'
     _inherit = 'pandumart.person'

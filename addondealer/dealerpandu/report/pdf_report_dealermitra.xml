@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id="report_dealermitra_pdf_template" name="Daftar Mobil">
+        
+        <t t-call="web.html_container" >
+            
+            <t t-call="web.internal_layout">
+               <div class='page'>
+
+                    <h1 align-text="center"><b>Dealer Mitra Mobil</b></h1>
+                    <br/>
+                        <table style="width:100%" border="1px solid">
+                            <tr>
+                                <th>Nama Dealer</th>
+                                <th>Alamat Dealer</th>
+                                <th>No. Telp</th>
+                                <th>Daftar Mobil</th>
+                            </tr>
+                        <t t-foreach='docs' t-as='d'>
+                            <tr>
+                                <td>
+                                    <div class='col-8'><span t-field='d.name'/></div>
+                                </td>
+                                <td>
+                                    <div class='col-8'><span t-field='d.alamat_dealer'/></div>
+                                </td>
+                                <td>
+                                    <div class='col-8'><span t-field='d.no_telp'/></div>
+                                </td>
+                                <td>
+                                    <div class='col-8'><span t-field='d.daftarmobil_id'/></div>
+                                </td>
+                            </tr>
+                        </t>
+                        </table>
+               </div> 
+            </t>
+        </t>    
+    </template>
+</odoo>

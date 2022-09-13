@@ -10,6 +10,7 @@
                 <!-- Add your fields here -->
                 <field name="name"/>
                 <field name="nama_pembeli"/>
+                <field name="id_member"/>
                 <field name="tgl_penjualan"/>
                 <field name="total_bayar"/>
                 <field name="state"/>
@@ -34,6 +35,7 @@
                     <group>
                         <field name="name" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                         <field name="nama_pembeli" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
+                        <field name="id_member" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                         <field name="tgl_penjualan" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                         <field name="total_bayar" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                     </group>

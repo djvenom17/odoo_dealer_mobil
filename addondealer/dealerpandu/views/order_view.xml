@@ -37,7 +37,7 @@
                         <field name="nama_pembeli" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                         <!-- force_save  -->
                         <field name="tgl_order" readonly="1" force_save="1"/>
-                        <field name="currency_id" invisible="1"/>
+                        <field name="currency_id" invisible="0" string="Kurs"/>
                         <field name="total_bayar" widget="monetary" options="{'currency_field': 'currency_id'}" readonly="1" force_save="1"/>
                     </group>
                     <group name="daftarorder" string="Daftar Order">

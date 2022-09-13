@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- hr.employee form view -->
+    <!-- <record id="hr_employee_senior_view_form" model="ir.ui.view">
+        <field name="name">Form senior Employee</field>
+        <field name="model">hr.employee</field>
+        <field name="mode">extension</field>
+        <field name="inherit_id" ref="hr.view_employee_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='department_id']" position="after">
+                <field name="plat_mobil"/>   
+                <field name="employee_junior"/>
+                <field name="employee_senior"/>
+            </xpath> 
+            <xpath expr="//field[@name='department_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='parent_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+            <xpath expr="//field[@name='coach_id']" position="attributes">
+                <attribute name="invisible">1</attribute>
+            </xpath>
+        </field>
+    </record> -->
+
+    <!-- <record id="hr_employee_senior_inherit_search" model="ir.ui.view">
+        <field name="name">res.partner.inherit.view.search</field>
+        <field name="model">res.partner</field>
+        <field name="mode">extension</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <field name="activity_ids" position='after'>
+                <filter name="senior" string="senior" domain="[('employee_senior', '=', 'True')]"/>
+            </field>
+        </field>
+    </record> -->
+
+    <!-- hr.employee action window -->
+    <record id="hr_employee_senior_action" model="ir.actions.act_window">
+        <field name="name">Data senior Employee</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">hr.employee</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="context">
+            {
+                'search_default_senior':1,
+                'default_employee_senior':True
+            }
+        </field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="dealerpandu_karyawansenior_menu_act" 
+              name="Karyawan Senior" 
+              parent="karyawan_menu_categ" 
+              action="hr_employee_senior_action" 
+              sequence="62"/>
+
+</odoo>
