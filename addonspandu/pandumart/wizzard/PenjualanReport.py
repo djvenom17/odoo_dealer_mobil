@@ -15,16 +15,16 @@ class PenjualanReport(models.TransientModel):
         dari_tgl = self.dari_tgl
         ke_tgl = self.ke_tgl
         if konsumen_id:
-            filter += [('nama_pembeli', '=', konsumen_id.id_member)]
+            filter += [('nama_pembeli', '=', konsumen_id.id)]
         if dari_tgl:
             filter += [('tgl_penjualan','>=', dari_tgl)]
         if ke_tgl:
             filter += [('tgl_penjualan', '<=', ke_tgl)]
-        penjualan = self.env['pandumart.penjualan'].search(filter)
+        penjualan = self.env['pandumart.penjualan'].search_read(filter)
         
         data = {
             'form': self.read()[0],
-            'penjualan': penjualan
+            'penjualanxx': penjualan
         }
         return self.env.ref('pandumart.wizard_penjualanreport_pdf').report_action(self, data=data)
         

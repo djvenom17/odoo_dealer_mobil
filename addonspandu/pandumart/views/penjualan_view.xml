@@ -13,7 +13,11 @@
                 <field name="id_member"/>
                 <field name="tgl_penjualan"/>
                 <field name="total_bayar"/>
-                <field name="state"/>
+                <field name="state"
+                    decoration-success="state == 'draft'"
+                    decoration-muted="state == 'cancel'"
+                    decoration-info="state == 'confirm'"
+                    widget="badge"/>
             </tree>
         </field>
     </record>
