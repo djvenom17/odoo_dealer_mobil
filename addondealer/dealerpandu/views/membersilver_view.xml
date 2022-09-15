@@ -9,7 +9,6 @@
         <field name="inherit_id" ref="base.view_partner_tree"/>
         <field name="arch" type="xml">
                 <xpath expr="//field[@name='email']" position="after">
-                    <field name="plat_mobil"/>   
                     <field name="member_silver"/>
                     <field name="member_gold"/>
                 </xpath> 
@@ -24,7 +23,6 @@
         <field name="inherit_id" ref="base.view_partner_form"/>
         <field name="arch" type="xml">
             <xpath expr="//field[@name='vat']" position="after">
-                <field name="plat_mobil"/>   
                 <field name="member_silver"/>
                 <field name="member_gold"/>
             </xpath> 
@@ -48,7 +46,7 @@
 
     <!-- res.partner action window -->
     <record id="res_partner_silver_action" model="ir.actions.act_window">
-        <field name="name">Data silver Employee</field>
+        <field name="name">Data Member silver</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">res.partner</field>
         <field name="view_mode">tree,form,kanban</field>

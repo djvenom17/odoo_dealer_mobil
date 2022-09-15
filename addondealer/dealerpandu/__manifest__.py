@@ -20,14 +20,17 @@
     'version': '0.1',
 
     # any module necessary for this one to work correctly
-    'depends': ['base', 'fleet', 'report_xlsx'],
+    'depends': ['base', 'hr', 'report_xlsx'],
 
     # always loaded
     'data': [
         'security/ir.model.access.csv',
-        'views/views.xml',
-        'views/templates.xml',
         'views/menu_view.xml',
+        'wizard/addmobil_wizard_view.xml',
+        'report/wizardinvoiceorder_template.xml',
+        'wizard/wizardinvoiceorder_view.xml',
+        'views/views.xml',
+        'views/templates.xml',  
         'views/daftarmobil_view.xml',
         'views/brandmobil_view.xml',
         'views/membersilver_view.xml',
@@ -41,9 +44,6 @@
         'report/kocak.xml',
         'views/dealermitra_view.xml',
         'views/order_view.xml',
-        'wizard/addmobil_wizard_view.xml',
-        'wizard/wizardinvoiceorder_view.xml',
-        'report/wizardinvoiceorder_template.xml',
         'report/report.xml',
         'report/pdf_report_junior.xml',
         'report/pdf_report_senior.xml',

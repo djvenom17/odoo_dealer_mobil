@@ -17,7 +17,7 @@
 
     <!-- res.partner action window -->
     <record id="res_partner_gold_action" model="ir.actions.act_window">
-        <field name="name">Data gold Employee</field>
+        <field name="name">Data Member Gold</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">res.partner</field>
         <field name="view_mode">tree,form,kanban</field>

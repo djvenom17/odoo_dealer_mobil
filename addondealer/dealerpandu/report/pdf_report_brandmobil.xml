@@ -10,7 +10,7 @@
 
                     <h1 align-text="center"><b>Brand Mobil</b></h1>
                     <br/>
-                        <table style="width:100%" border="1px solid">
+                        <table style="width:100%" class="table table-bordered">
                             <tr>
                                 <th>Nama Brand</th>
                                 <th>Founder Brand</th>

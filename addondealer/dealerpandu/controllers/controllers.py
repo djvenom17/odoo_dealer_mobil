@@ -49,7 +49,6 @@ class Dealerpandu(http.Controller):
         for a in member:
             isi.append({
                 'nama' : a.display_name,
-                'plat_mobil' : a.plat_mobil,
                 'member_silver' : a.member_silver,
                 'member_gold' : a.member_gold
             })
@@ -62,37 +61,11 @@ class Dealerpandu(http.Controller):
         for a in member:
             isi.append({
                 'nama' : a.display_name,
-                'plat_mobil' : a.plat_mobil,
                 'member_silver' : a.member_silver,
                 'member_gold' : a.member_gold
             })
         return json.dumps(isi)
 
-    @http.route('/dealerpandu/getkaryawanjunior', auth="public", method=['GET'])
-    def getkaryawanjunior(self, **kw):
-        karyawan = request.env['hr.employee'].search([])
-        isi = []
-        for a in karyawan:
-            isi.append({
-                'nama' : a.display_name,
-                'plat_mobil' : a.plat_mobil,
-                'karyawan_junior' : a.employee_junior,
-                'karyawan_senior' : a.employee_senior
-            })
-        return json.dumps(isi)
-
-    @http.route('/dealerpandu/getkaryawansenior', auth="public", method=['GET'])
-    def getkaryawansenior(self, **kw):
-        karyawan = request.env['hr.employee'].search([])
-        isi = []
-        for a in karyawan:
-            isi.append({
-                'nama' : a.display_name,
-                'plat_mobil' : a.plat_mobil,
-                'karyawan_junior' : a.employee_junior,
-                'karyawan_senior' : a.employee_senior
-            })
-        return json.dumps(isi)
 
     #res.partner gabisa di json.dumps
     @http.route('/dealerpandu/getorder', auth="public", method=['GET'])

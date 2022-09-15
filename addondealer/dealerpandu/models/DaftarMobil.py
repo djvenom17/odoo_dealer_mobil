@@ -20,7 +20,6 @@ class DaftarMobil(models.Model):
     
     _sql_constraints = [
         ('nama_mobil_unik','unique (name)','Nama Mobil Sudah Terdaftar'),
-        ('brandmobil_id_notnull','CHECK (brandmobil_id IS NOT NULL)','Brand Mobil Gaboleh Kosong Dong !!!')
         ]
     
     @api.constrains('stock')

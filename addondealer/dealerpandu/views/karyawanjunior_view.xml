@@ -41,12 +41,12 @@
     </record>
 
     <record id="hr_employee_junior_inherit_search" model="ir.ui.view">
-        <field name="name">res.partner.inherit.view.search</field>
-        <field name="model">res.partner</field>
+        <field name="name">hr.employee.inherit.view.search</field>
+        <field name="model">hr.employee</field>
         <field name="mode">extension</field>
-        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="inherit_id" ref="hr.view_employee_filter"/>
         <field name="arch" type="xml">
-            <field name="parent_id" position='after'>
+            <field name="name" position='after'>
                 <filter name="junior" string="Junior" domain="[('employee_junior', '=', 'True')]"/>
             </field>
         </field>

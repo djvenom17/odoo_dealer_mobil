@@ -10,7 +10,7 @@
                 <sheet>
                     <group>
                         <!-- Add your fields here -->
-                        <field name="konsumen_id"/>
+                        <field name="konsumen_id" domain="[('member_gold', '=', True)]"/>
                     </group>
                     <group name="tgl" string="Tanggal">
                         <field name="dari_tgl"/>
@@ -31,7 +31,7 @@
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">dealerpandu.wizardinvoiceorder</field>
         <field name="view_mode">form</field>
-        <field name="view_id" ref=""/>
+        <field name="view_id" ref="dealerpandu.wizard_invoice_order_pdf_template"/>
         <field name="target">new</field>
     </record>
 

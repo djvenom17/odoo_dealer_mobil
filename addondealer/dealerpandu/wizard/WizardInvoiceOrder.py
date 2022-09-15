@@ -6,8 +6,8 @@ class InvoiceOrder(models.TransientModel):
     _name = 'dealerpandu.wizardinvoiceorder'
 
     konsumen_id = fields.Many2one(comodel_name='res.partner', string='Konsumen')
-    dari_tgl = fields.Date('Dari Tanggal')
-    ke_tgl = fields.Date('Ke Tanggal')
+    dari_tgl = fields.Date(string='Dari Tanggal')
+    ke_tgl = fields.Date(string='Ke Tanggal')
     
     #MASIH EROR
     def button_wizard_invoice_order_action(self):
@@ -18,7 +18,7 @@ class InvoiceOrder(models.TransientModel):
         if konsumen_id:
             filter += [('nama_pembeli', '=', konsumen_id.id)]
         if dari_tgl:
-            filter += [('tgl_order','>=', dari_tgl)]
+            filter += [('tgl_order', '>=', dari_tgl)]
         if ke_tgl:
             filter += [('tgl_order', '<=', ke_tgl)]
         print(filter)
@@ -26,6 +26,6 @@ class InvoiceOrder(models.TransientModel):
         print(order)
         data = {
             'form': self.read()[0],
-            'orderxxx': order
+            'orderxx': order
         }
         return self.env.ref('dealerpandu.wizard_invoice_order_pdf').report_action(self, data=data)
