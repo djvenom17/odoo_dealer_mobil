@@ -10,9 +10,17 @@
                 <!-- Add your fields here -->
                 <field name="name"/>
                 <field name="nama_pembeli"/>
+                <field name="member_silver" readonly="1" force_save="1"/>
+                <field name="member_gold" readonly="1" force_save="1"/>
                 <field name="tgl_order"/>
+                <field name="currency_id" invisible="1"/>
                 <field name="total_bayar"/>
-                <field name="state"/>
+                <field name="state" 
+                    widget="badge"
+                    decoration-success="state == 'done'"
+                    decoration-danger="state == 'cancel'"
+                    decoration-info="state == 'confirm'"
+                    decoration-muted="state == 'draft'"/>
             </tree>
         </field>
     </record>
@@ -31,7 +39,7 @@
                     <field name="state" widget="statusbar" statusbar_visible="draft,confirm,done"/>
                 </header>
                 <sheet>
-                    <group>
+                    <group name="data_order" string="Data Pembeli">
                         <!-- Add your fields here -->
                         <field name="name" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
                         <field name="nama_pembeli" attrs="{'readonly': [('state', '!=', 'draft')]}"/>
@@ -39,6 +47,10 @@
                         <field name="tgl_order" readonly="1" force_save="1"/>
                         <field name="currency_id" invisible="0" string="Kurs"/>
                         <field name="total_bayar" widget="monetary" options="{'currency_field': 'currency_id'}" readonly="1" force_save="1"/>
+                    </group>
+                    <group name="member_status" string="Member Status">
+                        <field name="member_silver" readonly="1" force_save="1"/>
+                        <field name="member_gold" readonly="1" force_save="1"/>
                     </group>
                     <group name="daftarorder" string="Daftar Order">
                         <field name="detailorder_ids" attrs="{'readonly': [('state', '!=', 'draft')]}">

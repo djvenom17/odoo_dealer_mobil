@@ -23,8 +23,22 @@ class Order(models.Model):
                                         ('cancel', 'Cancel')],
                             required=True, readonly=True, default="draft") 
     currency_id = fields.Many2one('res.currency', string='Account Currency',
-        help="Forces all moves for this account to have this account currency.")
+        help="Forces all moves for this account to have this account currency.", required=True)
+    member_silver = fields.Boolean(compute='_compute_member_silver',string='Silver')
+    member_gold = fields.Boolean(compute='_compute_member_gold',string='Gold')
 
+
+    @api.depends('nama_pembeli')
+    def _compute_member_silver(self):
+        for rec in self:
+            rec.member_silver = rec.nama_pembeli.member_silver
+
+    @api.depends('nama_pembeli')
+    def _compute_member_gold(self):
+        for rec in self:
+            rec.member_gold = rec.nama_pembeli.member_gold
+
+    #biar tgl. ordernya gak stuck waktunya
     @api.model
     def default_get(self, fields):
         res = super(Order, self).default_get(fields)
@@ -98,7 +112,8 @@ class DetailOrder(models.Model):
     daftarmobil_id = fields.Many2one(comodel_name='dealerpandu.daftarmobil', string='Daftar Mobil', required=True)
     cost_satuan = fields.Integer(string='Harga Satuan')
     qty_order = fields.Integer(string='Jumlah Pembelian')
-    sub_total = fields.Integer(compute='_compute_subtotal', string='Total Harga')  
+    sub_total = fields.Integer(compute='_compute_subtotal', string='Total Harga') 
+   
     
 
     #jumlah total yang harus dibayarkan
@@ -113,7 +128,7 @@ class DetailOrder(models.Model):
         if (self.daftarmobil_id.harga_mobil_jual):
             self.cost_satuan = self.daftarmobil_id.harga_mobil_jual
     
-    #menampilkan daftarmobil yang tersedia
+    #menghapus qty mobil di M2O daftar mobil
     @api.model
     def create(self,vals):
         record = super(DetailOrder,self).create(vals)
@@ -130,4 +145,7 @@ class DetailOrder(models.Model):
             elif (rec.daftarmobil_id.stock < rec.qty_order):
                 raise ValidationError('stock {} di gudang tidak mencukupi, hanya tersedia {}'.format(rec.daftarmobil_id.name, rec.daftarmobil_id.stock))
     
+
+
+
 

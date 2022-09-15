@@ -41,61 +41,52 @@
     </record>
 
     <!-- dealerpandu.brandmobil kanban view -->
-    <!-- <record id="dealerpandu_brandmobil_view_kanban" model="ir.ui.view">
+    <record id="dealerpandu_brandmobil_view_kanban" model="ir.ui.view">
         <field name="name">Kanban View</field>
         <field name="model">dealerpandu.brandmobil</field>
         <field name="arch" type="xml">
             <kanban string="Kanban Description">
-               
-                <field name="logo_brand"/>
                 <field name="name"/>
-                <field name="brand_country"/> 
+                <field name="brand_country"/>
                 <field name="founder_brand"/>
-                <template id="template_kanban" name="kanban">
+                <field name="jml_mobil"/>
+                <!-- wajib ada field id untuk define img -->
+                <field name="id"/>
+                <field name="logo_brand"/>
+                <templates id="template_id" name="template_name">
                     <t t-name="kanban-box">
-                            <div class="oe_kanban_global_click o_kanban_record_has_image_fill o_dealerpandu_brandmobil_kanban">
-                                <t t-if="!record.brandmobil.raw_value">
-                                    <t t-set="background_image" t-value="kanban_image('dealerpandu', 'logo_brand', record.id.raw_value)"/>
-                                    <div class="o_kanban_image_fill_left d-none d-md-block" t-attf-style="background-image:url('#{background_image}')">
-                                        <img class="o_kanban_image_inner_pic" t-if="record.parent_id.raw_value" t-att-alt="record.parent_id.value" t-att-src="kanban_image('dealerpandu', 'logo_brand', record.brandmobil.raw_value)"/>
-                                    </div>
-                                    <div class="o_kanban_image d-md-none" t-attf-style="background-image: url(#{background_image})">
-                                        <img class="o_kanban_image_inner_pic" t-if="record.parent_id.raw_value" t-att-alt="record.parent_id.value" t-att-src="kanban_image('dealerpandu', 'logo_brand', record.brandmobil.raw_value)"/>
-                                    </div>
-                                </t>
-                                <t t-else="">
-                                    <div class="o_kanban_image_fill_left o_kanban_image_full" t-attf-style="background-image: url(#{kanban_image('res.partner', 'avatar_128', record.id.raw_value)})" role="img"/>
-                                </t>
-                                <div class="oe_kanban_details d-flex flex-column">
-                                    <strong class="o_kanban_record_title oe_partner_heading"><field name="display_name"/></strong>
-                                    <div class="o_kanban_tags_section oe_kanban_partner_categories"/>
-                                    <ul>
-                                        <li t-if="record.parent_id.raw_value and !record.function.raw_value"><field name="parent_id"/></li>
-                                        <li t-if="!record.parent_id.raw_value and record.function.raw_value"><field name="function"/></li>
-                                        <li t-if="record.parent_id.raw_value and record.function.raw_value"><field name="function"/> at <field name="parent_id"/></li>
-                                        <li t-if="record.city.raw_value or record.country_id.raw_value">
-                                            <t t-if="record.city.raw_value"><field name="city"/><t t-if="record.country_id.raw_value">, </t></t>
-                                            <t t-if="record.country_id.raw_value"><field name="country_id"/></t>
-                                        </li>
-                                        <li t-if="record.email.raw_value" class="o_text_overflow"><field name="email"/></li>
-                                    </ul>
-                                    <div class="o_row">
-                                        <span class="oe_kanban_partner_links"/>
-                                    </div>
-                                </div>
+                        <!-- kanban global click -->
+                        <div class="oe_kanban_global_click o_kanban_record_has_image_fill">
+                            <!-- format kanban view('module_name','field_name',record.id.raw_value, placeholder) -->
+                            <div class="o_kanban_image d-none d-md-block" t-attf-style="background-image:url('#{kanban_image('dealerpandu.brandmobil','logo_brand', record.id.raw_value, placeholder)}')">
+                                <!-- <img class="oe_kanban_image_inner_pic" 
+                                    t-att-src="kanban_image('dealerpandu.brandmobil','logo_brand', record.id.raw_value)"/> -->
                             </div>
-                        </t>
-                </template>
-            </kanban>
+                            
+                            <div class="oe_kanban_details d-flex flex-column">
+                                <strong>
+                                    <span t-esc="record.name.raw_value"/>
+                                </strong>
+                                <ul>
+                                    <li>Brand Country :-<span t-esc="record.brand_country.raw_value"/></li>
+                                    <li>Founder Brand :-<span t-esc="record.founder_brand.raw_value"/></li>
+                                    <li>Jumlah Mobil :-<span t-esc="record.jml_mobil.raw_value"/></li>
+                                    <!-- <li>Daftar Mobil :-<span t-esc="record.daftarmobil_ids.raw_value"/></li> -->
+                                </ul>
+                            </div>
+                        </div>
+                    </t>  
+                </templates>
+            </kanban>             
         </field>
-    </record> -->
+    </record>
 
     <!-- dealerpandu.brandmobil action window -->
     <record id="dealerpandu_brandmobil_action" model="ir.actions.act_window">
         <field name="name">Brand Mobil</field>
         <field name="type">ir.actions.act_window</field>
         <field name="res_model">dealerpandu.brandmobil</field>
-        <field name="view_mode">tree,form,kanban</field>
+        <field name="view_mode">tree,kanban,form</field>
     </record>
 
     <!-- This Menu Item must have a parent and an action -->

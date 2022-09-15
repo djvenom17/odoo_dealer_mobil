@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- dealerpandu.wizardinvoiceorder form view -->
+    <record id="dealerpandu_wizardinvoiceorder_view_form" model="ir.ui.view">
+        <field name="name">Invoice Order</field>
+        <field name="model">dealerpandu.wizardinvoiceorder</field>
+        <field name="arch" type="xml">
+            <form string="Order Invoice">
+                <sheet>
+                    <group>
+                        <!-- Add your fields here -->
+                        <field name="konsumen_id"/>
+                    </group>
+                    <group name="tgl" string="Tanggal">
+                        <field name="dari_tgl"/>
+                        <field name="ke_tgl"/>
+                    </group>
+                    <footer>
+                        <button name="button_wizard_invoice_order_action" string="Invoice Order" type="object" class="btn btn-primary"/>
+                        <button string="Cancel" special="cancel" class="oe_link"/>
+                    </footer>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- dealerpandu.wizardinvoiceorder action window -->
+    <record id="dealerpandu_wizardinvoiceorder_action" model="ir.actions.act_window">
+        <field name="name">Invoice Order</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">dealerpandu.wizardinvoiceorder</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref=""/>
+        <field name="target">new</field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="dealerpandu_wizardinvoiceorder_menu_act" 
+              name="Print Invoice" 
+              parent="dealerpandu_menu_root" 
+              action="dealerpandu_wizardinvoiceorder_action" 
+              sequence="60"/>
+</odoo>

@@ -40,17 +40,17 @@
         </field>
     </record>
 
-    <!-- <record id="hr_employee_junior_inherit_search" model="ir.ui.view">
+    <record id="hr_employee_junior_inherit_search" model="ir.ui.view">
         <field name="name">res.partner.inherit.view.search</field>
         <field name="model">res.partner</field>
         <field name="mode">extension</field>
         <field name="inherit_id" ref="base.view_res_partner_filter"/>
         <field name="arch" type="xml">
-            <field name="activity_ids" position='after'>
+            <field name="parent_id" position='after'>
                 <filter name="junior" string="Junior" domain="[('employee_junior', '=', 'True')]"/>
             </field>
         </field>
-    </record> -->
+    </record>
 
     <!-- hr.employee action window -->
     <record id="hr_employee_junior_action" model="ir.actions.act_window">

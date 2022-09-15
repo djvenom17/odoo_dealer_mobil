@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    
+
+    <record id="res_partner_gold_inherit_search" model="ir.ui.view">
+        <field name="name">res.partner.inherit.view.search</field>
+        <field name="model">res.partner</field>
+        <field name="mode">extension</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter"/>
+        <field name="arch" type="xml">
+            <field name="parent_id" position='after'>
+                <filter name="gold" string="gold" domain="[('member_gold', '=', 'True')]"/>
+            </field>
+        </field>
+    </record>
+
+    <!-- res.partner action window -->
+    <record id="res_partner_gold_action" model="ir.actions.act_window">
+        <field name="name">Data gold Employee</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form,kanban</field>
+        <field name="context">
+            {
+                'search_default_gold':1,
+                'default_member_gold':True
+            }
+        </field>
+    </record>
+
+    <!-- This Menu Item must have a parent and an action -->
+    <menuitem id="dealerpandu_gold_menu_act" 
+              name="gold" 
+              parent="pelanggan_menu_categ" 
+              action="res_partner_gold_action" 
+              sequence="20"/>
+
+</odoo>

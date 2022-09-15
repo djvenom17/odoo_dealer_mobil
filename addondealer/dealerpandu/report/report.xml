@@ -57,8 +57,8 @@
         <field name="name">Junior PDF</field>
         <field name="model">res.partner</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">res.report_junior_pdf_template</field>
-        <field name="report_file">res.report_junior_pdf_template</field>
+        <field name="report_name">dealerpandu.report_junior_pdf_template</field>
+        <field name="report_file">dealerpandu.report_junior_pdf_template</field>
         <field name="binding_model_id" ref="model_res_partner"/>
         <field name="binding_type">report</field>
     </record>
@@ -78,8 +78,8 @@
         <field name="name">Senior PDF</field>
         <field name="model">res.partner</field>
         <field name="report_type">qweb-pdf</field>
-        <field name="report_name">res.report_senior_pdf_template</field>
-        <field name="report_file">res.report_senior_pdf_template</field>
+        <field name="report_name">dealerpandu.report_senior_pdf_template</field>
+        <field name="report_file">dealerpandu.report_senior_pdf_template</field>
         <field name="binding_model_id" ref="model_res_partner"/>
         <field name="binding_type">report</field>
     </record>
@@ -125,4 +125,17 @@
         <field name="binding_model_id" ref="model_dealerpandu_order"/>
         <field name="binding_type">report</field>
     </record>
+
+    <!-- WIZARD  -->
+    <record id="wizard_invoice_order_pdf" model="ir.actions.report">
+        <field name="name">Print Invoice</field>
+        <field name="model">dealerpandu.wizardinvoiceorder</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">dealerpandu.wizard_invoice_order_pdf_template</field>
+        <field name="report_file">dealerpandu.wizard_invoice_order_pdf_template</field>
+        <field name="binding_model_id" ref="model_dealerpandu_wizardinvoiceorder"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
 </odoo>
