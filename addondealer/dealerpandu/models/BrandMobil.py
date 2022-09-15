@@ -30,6 +30,7 @@ class BrandMobil(models.Model):
         elif (self.name == 'honda'):
             self.brand_country = 'japan'
 
+
     #jumlah mobil didalam sebuah brand
     @api.depends('daftarmobil_ids')
     def _compute_jml_mobil(self):
